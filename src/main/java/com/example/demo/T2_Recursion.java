@@ -41,9 +41,9 @@ public class T2_Recursion {
     }
 
     private static void copy(File copyFile, File file1) {
-        String copy = copyFile + file1.getPath();
+        String copy = copyFile.getAbsolutePath() + File.separator + file1.getName();
         if(file1.isDirectory()){
-            copyFile(file1.getPath(), copyFile.getPath());
+            copyFile(file1.getPath(), copy);
         }else{
             BufferedInputStream inputStream = FileUtil.getInputStream(file1);
             BufferedOutputStream outputStream = FileUtil.getOutputStream(copy);
